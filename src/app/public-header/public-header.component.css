@@ -1,0 +1,13 @@
+.logo img {
+    width: 200px;
+}
+
+.logo{
+    width:200px;
+    margin-right: 25px;
+}
+
+nav.navbar.navbar-fixed-top.navbar-color-on-scroll .logo img {
+    position: relative;
+    top: 9px;
+}

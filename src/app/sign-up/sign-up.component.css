@@ -1,0 +1,78 @@
+.signup-page .page-header {
+    min-height: 100vh;
+    height: auto;
+}
+
+.header-filter {
+    position: relative;
+}
+
+.page-header {
+    height: 100vh;
+    background-position: center center;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.page-header {
+    padding-bottom: 9px;
+    margin: 0px 0 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.signup-page .page-header {
+    min-height: 100vh;
+    height: auto;
+    margin-bottom: 0 !important;
+}
+
+.signup-page .page-header .container {
+    padding-top: 10vh;
+}
+
+.signup-page .card-signup {
+    border-radius: 6px;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 100px;
+    padding: 40px 0px;
+}
+
+.signup-page .info-horizontal {
+    padding: 0px 0px 20px !important;
+}
+
+.signup-page .social .btn {
+    margin: 5px;
+}
+
+.signup-page .social h4 {
+    margin-top: 20px;
+}
+
+.signup-page .footer .container {
+    padding: 0;
+}
+
+.signup-page .footer .copyright,
+.signup-page .footer a {
+    color: #FFFFFF;
+}
+
+footer.footer {
+    position: absolute;
+    bottom: 1px;
+    z-index: 2;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+.checkbox {
+    text-align: center;
+}

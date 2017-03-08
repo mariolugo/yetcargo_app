@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Transporte de carga | Yetcargo</title>
+  <meta name="Description" content="¿Necesitas transportar tu mercancía? Resolvemos los problemas locales y foráneos de tus envíos.">
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="http://localhost:35729/livereload.js?snipver=1"></script>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/material-kit.css">
+  <link rel="stylesheet" href="/assets/css/demo.css">
+
+  <!--     Fonts and icons     -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+</head>
+<body class="index-page">
+  <app-root>Loading...</app-root>
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/bootstrap-datepicker.js"></script>
+  <script src="/assets/js/nouislider.min.js"></script>
+  <script src="/assets/js/material.min.js"></script>
+  <script src="/assets/js/material-kit.js"></script>
+  <script type="text/javascript">
+  
+    $().ready(function () {
+      // the body of this function is in assets/material-kit.js
+      // materialKit.initSliders();
+      window_width = $(window).width();
+
+      if (window_width >= 992) {
+        big_image = $('.wrapper > .header');
+
+        $(window).on('scroll', materialKitDemo.checkScrollForParallax);
+      }
+
+    });
+  </script>
+</body>
+</html>
