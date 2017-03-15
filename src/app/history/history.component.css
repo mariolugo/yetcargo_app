@@ -1,0 +1,21 @@
+.table{
+    margin-top: 15px;
+}
+
+td.td-actions.text-right {
+    padding: 0 !important;
+    padding-top: 6px !important;
+}
+
+button.btn.btn-danger.btn-round {
+    margin: 0 !important;
+}
+
+td {
+    padding: 15px !important;
+    text-align: left;
+}
+
+button.btn.btn-primary.btn-round {
+    margin: 0 !important;
+}

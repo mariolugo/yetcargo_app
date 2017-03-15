@@ -1,13 +1,13 @@
 <div class="signup-page">
-  <div class="page-header header-filter" filter-color="purple" style="background-image: url('../assets/img/bg7.jpg'); background-size: cover; background-position: top center;">
+  <div class="page-header header-filter" filter-color="purple">
     <div class="container">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
 
           <div class="card card-signup">
-            <h2 class="card-title text-center">Register</h2>
+            <h2 class="card-title text-center">¡Empieza a mover tu mercancía!</h2>
             <div class="row">
-              <div class="col-md-5 col-md-offset-1">
+              <div class="col-md-3 col-md-offset-1">
                 <div class="info info-horizontal">
                   <div class="icon icon-rose">
                     <i class="material-icons">timeline</i>
@@ -44,39 +44,67 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-5">
+              <div class="col-md-7">
 
-                <form class="form" method="" action="">
-                  <div class="content">
-                    <div class="input-group">
-                      <span class="input-group-addon">
-												<i class="material-icons">face</i>
-											</span>
-                      <div class="form-group is-empty"><input type="text" class="form-control" placeholder="First Name..."><span class="material-input"></span></div>
+                <form class="form" [formGroup]="signUpForm" (ngSubmit)="createUser(signUpForm.value, signUpForm.valid)">
+                  <div class="row form-row">
+                    <div class="input-group col-md-5 first">
+                      <div class="form-group is-empty"><input type="text" class="form-control" placeholder="Nombres" formControlName="firstName"><span class="material-input"></span></div>
                     </div>
 
-                    <div class="input-group">
-                      <span class="input-group-addon">
-												<i class="material-icons">email</i>
-											</span>
-                      <div class="form-group is-empty"><input type="text" class="form-control" placeholder="Email..."><span class="material-input"></span></div>
+                    <div class="input-group col-md-5">
+                      <div class="form-group is-empty"><input type="text" class="form-control" placeholder="Apellidos" formControlName="lastName"><span class="material-input"></span></div>
                     </div>
 
-                    <div class="input-group">
-                      <span class="input-group-addon">
-												<i class="material-icons">lock_outline</i>
-											</span>
-                      <div class="form-group is-empty"><input type="password" placeholder="Password..." class="form-control"><span class="material-input"></span></div>
+                    <div class="input-group col-md-5 first">
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="optionsRadios"  [(ngModel)]="type" value="'E'" [value]="'E'" [ngModelOptions]="{standalone: true}"><span class="circle"></span><span class="check"></span>
+                          Empresa
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="optionsRadios" [(ngModel)]="type" value="'P'" [value]="'P'" [ngModelOptions]="{standalone: true}"><span class="circle"></span><span class="check"></span>
+                          Particular
+                        </label>
+                      </div>
                     </div>
 
-                    <!-- If you want to add a checkbox to this form, uncomment this code -->
+                    <div class="input-group col-md-5">
+                      <div class="form-group is-empty"><input type="text" class="form-control" placeholder="Empresa" formControlName="company"><span class="material-input"></span></div>
+                    </div>
+
+                    <div class="input-group col-md-12">
+                      <div class="form-group is-empty"><input type="tel" placeholder="Teléfono o Celular (10 dígitos)" class="form-control" formControlName="cellPhone" min="10" max="10"><span class="material-input"></span></div>
+                    </div>
+
+                    <div class="input-group col-md-6 first">
+                      <div class="form-group is-empty"><input type="text" class="form-control" placeholder="Dirección" formControlName="address"><span class="material-input" ></span></div>
+                    </div>
+
+                    <div class="input-group col-md-4">
+                      <div class="form-group is-empty"><input type="text" class="form-control" placeholder="Código Postal" formControlName="zip" min="5" max="5"><span class="material-input"></span></div>
+                    </div>
+
+                    <div class="input-group col-md-12">
+                      <div class="form-group is-empty"><input type="email"  placeholder="Correo electrónico" class="form-control" formControlName="email"><span class="material-input"></span></div>
+                    </div>
+
+                    <div class="input-group col-md-12">
+                      <div class="form-group is-empty"><input type="password" placeholder="Contraseña" class="form-control" formControlName="password"><span class="material-input"></span></div>
+                    </div>
+
+                    <div class="input-group col-md-12">
+                      <div class="form-group is-empty"><input type="password" placeholder="Confirmar contraseña" class="form-control" formControlName="passwordConfirm"><span class="material-input"></span></div>
+                    </div>
 
                     <div class="checkbox">
-                     Al registrarte, estás aceptando los <a href="#something">términos y condiciones</a>.
+                      Al registrarte, estás aceptando los <a href="#something">términos y condiciones</a>.
                     </div>
                   </div>
                   <div class="footer text-center">
-                    <a href="#pablo" class="btn btn-primary btn-round">Get Started</a>
+                    <button class="btn btn-primary btn-round" type="submit" [disabled]="!signUpForm.valid" >Regístrate</button >
                   </div>
                 </form>
               </div>
@@ -87,40 +115,47 @@
       </div>
     </div>
 
-    <footer class="footer">
-      <div class="container">
-        <nav class="pull-left">
-          <ul>
-            <li>
-              <a href="http://www.creative-tim.com">
-								Creative Tim
-							</a>
-            </li>
-            <li>
-              <a href="http://presentation.creative-tim.com">
-							   About Us
-							</a>
-            </li>
-            <li>
-              <a href="http://blog.creative-tim.com">
-							   Blog
-							</a>
-            </li>
-            <li>
-              <a href="http://www.creative-tim.com/license">
-								Licenses
-							</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="copyright pull-right">
-          ©
-          <script>
-            document.write(new Date().getFullYear())
-          </script>2017, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com" target="_blank">Creative Tim</a>
-        </div>
+      <footer class="footer">
+    <div class="container">
+      <nav class="pull-left">
+        <ul>
+          <li>
+            <a href="http://www.yetcargo.com">
+							Yetcargo
+						</a>
+          </li>
+          <li>
+            <a href="http://presentation.creative-tim.com">
+						   FS6
+						</a>
+          </li>
+          <li>
+           <a href="http://blog.creative-tim.com">
+						   ANGEL LIST
+						</a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+							<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+						</a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+							 <i class="fa fa-facebook-official" aria-hidden="true"></i>
+						</a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+							 <i class="fa fa-twitter-square" aria-hidden="true"></i>
+						</a>
+          </li>
+         
+        </ul>
+      </nav>
+      <div class="copyright pull-right">
+        &copy; 2017 Yetcargo | Todos los derechos reservados.
       </div>
-    </footer>
-
+    </div>
+  </footer>
   </div>
 </div>

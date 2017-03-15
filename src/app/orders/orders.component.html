@@ -1,0 +1,57 @@
+<div class="col-md-4" *ngFor="let order of ordersList">
+  <div class="card card-blog">
+    <div class="card-image">
+      <a href="javascript:void(0)">
+        <img class="img" *ngIf="order.status === 'Por confirmar'" src="../assets/img/status/status1.png">
+        <img class="img" *ngIf="order.status === 'Unidad confirmada'" src="../assets/img/status/status2.png">
+        <img class="img" *ngIf="order.status === 'En ruta para carga'" src="../assets/img/status/status3.png">
+        <img class="img" *ngIf="order.status === 'En carga'" src="../assets/img/status/status4.png">
+        <img class="img" *ngIf="order.status === 'En espera de salida'" src="../assets/img/status/status5.png">
+        <img class="img" *ngIf="order.status === 'En ruta para entrega'" src="../assets/img/status/status6.png">
+        <img class="img" *ngIf="order.status === 'Con el cliente'" src="../assets/img/status/status7.png">
+        <img class="img" *ngIf="order.status === 'En descarga'" src="../assets/img/status/status8.png">
+        <img class="img" *ngIf="order.status === 'Problemas con la entrega'" src="../assets/img/status/status9.png">
+        <img class="img" *ngIf="order.status === 'Espera de documentos'" src="../assets/img/status/status10.png">
+
+      </a>
+    </div>
+
+    <div class="content">
+      <h6 class="category text-info"># rastreo: {{order.tracking}} &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; {{order.status}}</h6>
+      <div class="card-description">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="loadTitle">Destino</p>
+            <p class="loadSub address">{{order.destination}}</p>
+          </div>
+          <div class="col-md-6">
+            <p class="loadTitle">Tipo de Vehículo</p>
+            <p class="loadSub address">{{order.truck}}</p>
+          </div>
+          <div class="col-md-6">
+            <p class="loadTitle">Carga</p>
+            <p class="loadSub">{{order.load | date}}</p>
+          </div>
+          <div class="col-md-6">
+            <p class="loadTitle">Descarga</p>
+            <p class="loadSub" *ngIf="order.unload === undefined || order.unload === null">Por confirmar</p>
+            <p class="loadSub" *ngIf="order.unload !== undefined || order.unload !== null">{{order.unload | date}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+      <div class="row">
+        <div class="col-md-6 author">
+            <img src="assets/img/operador.png" alt="..." class="avatar img-raised">
+             <span *ngIf="order.worker === null">Sin confirmar</span>
+            <span *ngIf="order.worker !== null">{{order.worker}}</span>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-primary btn-simple" (click)="goToOrder(order.id)">Ver pedido<div class="ripple-container"></div></button>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+  </div>
+</div>

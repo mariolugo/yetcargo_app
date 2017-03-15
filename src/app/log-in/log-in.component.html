@@ -1,0 +1,96 @@
+<div class="signup-page">
+  <div class="page-header header-filter" filter-color="purple">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+          <div class="card card-signup">
+            <form class="form" method="" action="">
+              <div class="header header-primary text-center">
+                <h4 class="card-title">Inicia sesión</h4>
+              </div>
+              <div class="content">
+                <form [formGroup]="loginForm" (ngSubmit)="logIn(loginForm.value, loginForm.valid)" id="#form">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+										<i class="material-icons">email</i>
+									</span>
+                    <div class="form-group is-empty"><input type="text" class="form-control" placeholder="Correo electrónico" formControlName="email">
+                      <span class="material-input"></span>
+                    </div>
+                  </div>
+
+                  <div class="input-group">
+                    <span class="input-group-addon">
+										<i class="material-icons">lock_outline</i>
+									</span>
+                    <div class="form-group is-empty"><input type="password" placeholder="Contraseña" class="form-control" formControlName="password">
+                      <span class="material-input"></span>
+                    </div>
+                  </div>
+                </form>
+                <!-- If you want to add a checkbox to this form, uncomment this code
+
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" name="optionsCheckboxes" checked>
+										Subscribe to newsletter
+									</label>
+								</div> -->
+               
+                <div class="footer text-center">
+                  <button [disabled]="!loginForm.valid" class="btn btn-primary btn-round" type="submit" (click)="logIn(loginForm.value, loginForm.valid)">Inicia sesión</button>
+                  <br>
+                   <p>¿No tienes una cuenta? <br><a href="/sign-up">Regístrate aquí</a></p>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <nav class="pull-left">
+          <ul>
+            <li>
+              <a href="http://www.yetcargo.com">
+							Yetcargo
+						</a>
+            </li>
+            <li>
+              <a href="http://presentation.creative-tim.com">
+						   FS6
+						</a>
+            </li>
+            <li>
+              <a href="http://blog.creative-tim.com">
+						   ANGEL LIST
+						</a>
+            </li>
+            <li>
+              <a href="http://www.creative-tim.com/license">
+                <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://www.creative-tim.com/license">
+                <i class="fa fa-facebook-official" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://www.creative-tim.com/license">
+                <i class="fa fa-twitter-square" aria-hidden="true"></i>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+        <div class="copyright pull-right">
+          &copy; 2017 Yetcargo | Todos los derechos reservados.
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>

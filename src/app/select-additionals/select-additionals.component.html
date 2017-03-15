@@ -1,0 +1,151 @@
+<div class="new-order">
+  <div class="page-header header-filter" filter-color="purple">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+          <div class="card card-signup">
+            <div class="mdl-card mdl-shadow--2dp">
+
+              <div class="mdl-card__supporting-text">
+
+                <div class="mdl-stepper-horizontal-alternative">
+                  <a href="/order/select-truck" class="mdl-stepper-step active-step">
+                    <div class="icon icon-active">
+                      <i class="material-icons">local_shipping</i>
+                    </div>
+                    <div class="mdl-stepper-title">Transporte de carga</div>
+                    <div class="mdl-stepper-bar-left"></div>
+                    <div class="mdl-stepper-bar-right"></div>
+                  </a>
+                  <a href="/order/select-destination" class="mdl-stepper-step active-step">
+                    <div class="icon icon-active">
+                      <i class="material-icons">location_on</i>
+                    </div>
+                    <div class="mdl-stepper-title">Destino</div>
+                    <div class="mdl-stepper-bar-left"></div>
+                    <div class="mdl-stepper-bar-right"></div>
+                  </a>
+                  <a href="/order/select-dates" class="mdl-stepper-step active-step ">
+                    <div class="icon icon-active">
+                      <i class="material-icons ">date_range</i>
+                    </div>
+                    <div class="mdl-stepper-title">Fecha de carga y descarga</div>
+                    <div class="mdl-stepper-bar-left"></div>
+                    <div class="mdl-stepper-bar-right"></div>
+                  </a>
+                  <a class="mdl-stepper-step active-step">
+                    <div class="icon icon-active">
+                      <i class="material-icons">library_add</i>
+                    </div>
+                    <div class="mdl-stepper-title">Accesorios</div>
+                    <div class="mdl-stepper-bar-left"></div>
+                    <div class="mdl-stepper-bar-right"></div>
+                  </a>
+                  <a class="mdl-stepper-step">
+                    <div class="icon icon-not">
+                      <i class="material-icons">done_all</i>
+                    </div>
+                    <div class="mdl-stepper-title">Confirmación</div>
+                    <div class="mdl-stepper-bar-left"></div>
+                    <div class="mdl-stepper-bar-right"></div>
+                  </a>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="row additionals">
+              <div class="col-md-4 accesorios">
+                <h5>Añadir accesorios</h5>
+                <div id='checkboxes' *ngFor="let option of options">
+                  <input type='checkbox' id="cb{{option.value}}" [checked]="option.checked" value="{{option.name}}" [(ngModel)]="option.checked">
+                  <label for="cb{{option.value}}">{{option.name}}</label>
+                </div>
+
+              </div>
+              <div class="col-md-7 extras">
+                <h5>Añadir reparto o recolección</h5>
+                <div class="radios" *ngFor="let extra of extras">
+                  <div class="radio">
+                    <label>
+									    <input type="radio" name="optionsRadios" checked="true" [(ngModel)]="extraValue" [value]="extra"><span class="circle"></span><span class="check"></span>
+									    {{extra}}
+								    </label>
+                  </div>
+                </div>
+                <div class="additionals" *ngIf="extraValue === 'Reparto'">
+                  Ingresa la dirección de reparto, si son varias, sepáralas tecleando la tecla "Enter"
+                  <tag-input [(ngModel)]="extrasAddress" [placeholder]="'Ingresa una dirección de reparto'" [secondaryPlaceholder]="'Ingresa una dirección de reparto'">
+                  </tag-input>
+                </div>
+                <div class="additionals" *ngIf="extraValue === 'Recolección'">
+                  Ingresa la dirección de recolección, si son varias, sepáralas tecleando la tecla "Enter"
+                  <tag-input [(ngModel)]="extrasAddress" [placeholder]="'Ingresa una dirección de recolección'" [secondaryPlaceholder]="'Ingresa una dirección de recolección'">
+                  </tag-input>
+                  <!--<rl-tag-input [(ngModel)]="extrasAddress" placeholder="Ingresa una dirección de recolección"></rl-tag-input>-->
+                </div>
+              </div>
+              <div class="col-md-12 comments">
+                <h5>
+                  Añadir observaciones
+                  <textarea class="form-control" rows="3" [(ngModel)]="comments"></textarea>
+                </h5>
+              </div>
+            </div>
+
+            <div class="footer-card">
+              <a href="/order/select-dates" class="btn btn-primary btn-simple btn-back">Atrás</a>
+              <button class="btn btn-primary btn-next" (click)="goReview()">Continuar<div class="ripple-container"></div></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+    <div class="container">
+      <nav class="pull-left">
+        <ul>
+          <li>
+            <a href="http://www.yetcargo.com">
+							Yetcargo
+						</a>
+          </li>
+          <li>
+            <a href="http://presentation.creative-tim.com">
+						   FS6
+						</a>
+          </li>
+          <li>
+           <a href="http://blog.creative-tim.com">
+						   ANGEL LIST
+						</a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+							<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+						</a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+							 <i class="fa fa-facebook-official" aria-hidden="true"></i>
+						</a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+							 <i class="fa fa-twitter-square" aria-hidden="true"></i>
+						</a>
+          </li>
+         
+        </ul>
+      </nav>
+      <div class="copyright pull-right">
+        &copy; 2017 Yetcargo | Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+  </div>
+</div>

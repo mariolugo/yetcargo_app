@@ -246,3 +246,12 @@
 .contactus h4.info-title {
     color: white !important;
 }
+
+footer ul li a i {
+    font-size: 18px !important;
+}
+
+.card .header-primary, .card .content-primary {
+    background: -webkit-linear-gradient(30deg, #ffbd66, #ff9100);
+    background: linear-gradient(60deg, #ffbd66, #ff9100);
+}

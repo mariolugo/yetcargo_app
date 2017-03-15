@@ -2,6 +2,7 @@ import { Routes, RouterModule, CanActivate } from '@angular/router';
 // import { AuthGuard } from './common/auth-guard.service';
 import { HomeComponent } from './home/home.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { PartnerSignupComponent } from './partner-signup/partner-signup.component';
 
 const appRoutes: Routes = [
     {
@@ -15,6 +16,10 @@ const appRoutes: Routes = [
     {
         path: 'sign-up',
         component: SignUpComponent
+    },
+    {
+        path: 'partner-sign-up',
+        component: PartnerSignupComponent
     }
 
     // {

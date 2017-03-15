@@ -1,0 +1,31 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th class="text-center"># Tracking</th>
+      <th>Destino</th>
+      <th>Fecha de carga</th>
+      <th>Fecha de descarga</th>
+      <th>Estatus</th>
+      <th class="text-right">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of ordersList">
+      <td class="text-center">{{order.tracking}}</td>
+      <td>{{order.destination}}</td>
+      <td>{{order.load | date:'medium'}}</td>
+      <td>
+        <p *ngIf="order.unload === null || order.unload === undefined">Por confirmar</p>
+        <p *ngIf="order.unload !== null || order.unload !== undefined">{{order.unload | date:'medium'}}</p>
+      </td>
+      <td>{{order.status}}r</td>
+      <td class="td-actions text-right">
+        <button type="button" (click)="onSelect(order.id)" class="btn btn-primary btn-round" >
+		      VER ORDEN
+		   </button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<app-new-client></app-new-client>

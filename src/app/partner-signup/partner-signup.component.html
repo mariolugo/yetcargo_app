@@ -1,0 +1,150 @@
+<div class="signup-page">
+  <div class="page-header header-filter" filter-color="purple">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+          <div class="card card-signup">
+            <h2 class="card-title text-center">¡Conviértete en socio!</h2>
+            <div class="row">
+              <div class="col-md-3 col-md-offset-1">
+                <div class="info info-horizontal">
+                  <div class="icon icon-rose">
+                    <i class="material-icons">timeline</i>
+                  </div>
+                  <div class="description">
+                    <h4 class="info-title">Marketing</h4>
+                    <p class="description">
+                      We've created the marketing campaign of the website. It was a very interesting collaboration.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="info info-horizontal">
+                  <div class="icon icon-primary">
+                    <i class="material-icons">code</i>
+                  </div>
+                  <div class="description">
+                    <h4 class="info-title">Fully Coded in HTML5</h4>
+                    <p class="description">
+                      We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="info info-horizontal">
+                  <div class="icon icon-info">
+                    <i class="material-icons">group</i>
+                  </div>
+                  <div class="description">
+                    <h4 class="info-title">Built Audience</h4>
+                    <p class="description">
+                      There is also a Fully Customizable CMS Admin Dashboard for this product.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-7">
+
+                <form class="form" [formGroup]="signUpForm" (ngSubmit)="createUser(signUpForm.value, signUpForm.valid)">
+                  <div class="row form-row">
+                    <div class="input-group col-md-5 first">
+                      <div class="form-group is-empty"><input type="text" class="form-control" placeholder="Nombres" formControlName="firstName"><span class="material-input"></span></div>
+                    </div>
+
+                    <div class="input-group col-md-5">
+                      <div class="form-group is-empty"><input type="text" class="form-control" placeholder="Apellidos" formControlName="lastName"><span class="material-input"></span></div>
+                    </div>
+
+                    <div class="input-group col-md-5 first">
+                      <div class="form-group is-empty"><input type="text" class="form-control" placeholder="Empresa" formControlName="company"><span class="material-input"></span></div>
+                    </div>
+
+                    <div class="input-group col-md-5">
+                      <div class="form-group is-empty"><input type="text" class="form-control" placeholder="RFC" ><span class="material-input"></span></div>
+                    </div>
+
+                    <div class="input-group col-md-12">
+                      <div class="form-group is-empty"><input type="tel" placeholder="Teléfono o Celular (10 dígitos)" class="form-control" formControlName="cellPhone" min="10" max="10"><span class="material-input"></span></div>
+                    </div>
+
+                    <div class="input-group col-md-6 first">
+                      <div class="form-group is-empty"><input type="text" class="form-control" placeholder="Dirección" formControlName="address"><span class="material-input"></span></div>
+                    </div>
+
+                    <div class="input-group col-md-4">
+                      <div class="form-group is-empty"><input type="text" class="form-control" placeholder="Código Postal" formControlName="zip" min="5" max="5"><span class="material-input"></span></div>
+                    </div>
+
+                    <div class="input-group col-md-12">
+                      <div class="form-group is-empty"><input type="email"  placeholder="Correo electrónico" class="form-control" formControlName="email"><span class="material-input"></span></div>
+                    </div>
+
+                    <div class="input-group col-md-12">
+                      <div class="form-group is-empty"><input type="password" placeholder="Contraseña" class="form-control" formControlName="password"><span class="material-input"></span></div>
+                    </div>
+
+                    <div class="input-group col-md-12">
+                      <div class="form-group is-empty"><input type="password" placeholder="Confirmar contraseña" class="form-control" formControlName="passwordConfirm"><span class="material-input"></span></div>
+                    </div>
+
+                    <div class="checkbox">
+                      Al registrarte, estás aceptando los <a href="#something">términos y condiciones</a>.
+                    </div>
+                  </div>
+                  <div class="footer text-center">
+                    <button type="submit" [disabled]="!signUpForm.valid" class="btn btn-primary btn-round" >Regístrate</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+      <footer class="footer">
+    <div class="container">
+      <nav class="pull-left">
+        <ul>
+          <li>
+            <a href="http://www.yetcargo.com">
+							Yetcargo
+						</a>
+          </li>
+          <li>
+            <a href="http://presentation.creative-tim.com">
+						   FS6
+						</a>
+          </li>
+          <li>
+           <a href="http://blog.creative-tim.com">
+						   ANGEL LIST
+						</a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+							<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+						</a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+							 <i class="fa fa-facebook-official" aria-hidden="true"></i>
+						</a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+							 <i class="fa fa-twitter-square" aria-hidden="true"></i>
+						</a>
+          </li>
+         
+        </ul>
+      </nav>
+      <div class="copyright pull-right">
+        &copy; 2017 Yetcargo | Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+  </div>
+</div>

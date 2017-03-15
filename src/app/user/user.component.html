@@ -1,0 +1,162 @@
+<div class="profile-page">
+  <div class="page-header header-filter" data-parallax="active" style="background-image: url(&quot;../assets/img/examples/city.jpg&quot;); transform: translate3d(0px, 0px, 0px);"></div>
+  <div class="main main-raised">
+    <div class="profile-content">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-xs-6 col-xs-offset-3">
+            <div class="profile">
+              <div class="avatar">
+                <img src="/assets/img/people.png" alt="Circle Image" class="img-circle img-responsive img-raised">
+              </div>
+              <div class="name">
+                <h3 class="title">{{getUserData().firstName}} {{getUserData().lastName}}</h3>
+                <h6>{{getUserData().company}}</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-2 follow">
+            <button class="btn btn-fab btn-primary" (click)="createOrder()" id="userTooltip" rel="tooltip" title="" data-original-title="¡Haz un nuevo pedido!">
+                            <i class="material-icons">add</i>
+                        </button>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="getUserData().isActivated() === '0'">
+          <div class="col-md-10 col-md-offset-1">
+            <blockquote>
+              <p>
+                ¡Activa tu cuenta para hacer tu primer pedido!. Si no has recibido ningun correo, ¡podemos enviártelo de nuevo!
+              </p>
+              <!--<small>-->
+              <button class="btn btn-primary" (click)="sendAgain(getUserData().id)">Enviar correo</button>
+              <!--</small>-->
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="getUserData().isActivated() !== '0' && getUserData().blocked === '1'">
+          <div class="col-md-10 col-md-offset-1">
+            <blockquote>
+              <p>
+                ¡Hola, bienvenido a Yetcargo! Por el momento tus pedidos no serán confirmados, para poder confirmarlos necesitamos evaluar
+                tus necesidades como empresa para ofrecerte una solución que se ajuste a tu operación. Sin embargo, podrás
+                interactuar con nuestra plataforma y realizar pedidos de prueba. ¡Por favor escríbenos a <b>equipo@yetcargo.com</b>
+                para comenzar a evaluar tus necesidades y confirmar tus pedidos!
+              </p>
+              <small>
+	                         El equipo de Yetcargo
+	                       </small>
+            </blockquote>
+          </div>
+        </div>
+
+
+
+        <!--<div class="description text-center">
+          <p>An artist of considerable range, Chet Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy —
+            writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure.
+            </p>
+        </div>-->
+
+        <div class="row" *ngIf="getUserData().isActivated() === '1'">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="profile-tabs">
+              <div class="nav-align-center">
+                <ul class="nav nav-pills nav-pills-icons" role="tablist">
+                  <li class="active">
+                    <a href="#work" role="tab" data-toggle="tab">
+                      <i class="material-icons">local_shipping</i> Pedidos
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#connections" role="tab" data-toggle="tab">
+                      <i class="material-icons">location_on</i> Destinos
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#media" role="tab" data-toggle="tab">
+                      <i class="material-icons">view_list</i> Historial
+                    </a>
+                  </li>
+                </ul>
+
+
+              </div>
+            </div>
+            <!-- End Profile Tabs -->
+          </div>
+        </div>
+        <div class="tab-content" *ngIf="getUserData().isActivated() === '1'">
+          <div class="tab-pane active work" id="work">
+            <div class="row">
+              <div class="col-md-12">
+                <h4 class="title">Pedidos en curso</h4>
+                <div class="row collections">
+
+                  <app-orders></app-orders>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="tab-pane connections" id="connections">
+            <div class="row">
+              <app-user-clients></app-user-clients>
+            </div>
+          </div>
+          <div class="tab-pane text-center gallery" id="media">
+            <div class="row">
+              <app-history></app-history>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <nav class="pull-left">
+        <ul>
+          <li>
+            <a href="http://www.yetcargo.com">
+							Yetcargo
+						</a>
+          </li>
+          <li>
+            <a href="http://presentation.creative-tim.com">
+						   FS6
+						</a>
+          </li>
+          <li>
+            <a href="http://blog.creative-tim.com">
+						   ANGEL LIST
+						</a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+              <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+              <i class="fa fa-facebook-official" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+              <i class="fa fa-twitter-square" aria-hidden="true"></i>
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+      <div class="copyright pull-right">
+        &copy; 2017 Yetcargo | Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+</div>

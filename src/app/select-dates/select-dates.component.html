@@ -1,0 +1,124 @@
+<div class="new-order">
+  <div class="page-header header-filter" filter-color="purple">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+          <div class="card card-signup">
+            <div class="mdl-card mdl-shadow--2dp">
+
+              <div class="mdl-card__supporting-text">
+
+                <div class="mdl-stepper-horizontal-alternative">
+                  <a href="/order/select-truck" class="mdl-stepper-step active-step">
+                    <div class="icon icon-active">
+                      <i class="material-icons">local_shipping</i>
+                    </div>
+                    <div class="mdl-stepper-title">Transporte de carga</div>
+                    <div class="mdl-stepper-bar-left"></div>
+                    <div class="mdl-stepper-bar-right"></div>
+                  </a>
+                  <a href="/order/select-destination" class="mdl-stepper-step active-step">
+                    <div class="icon icon-active">
+                      <i class="material-icons">location_on</i>
+                    </div>
+                    <div class="mdl-stepper-title">Destino</div>
+                    <div class="mdl-stepper-bar-left"></div>
+                    <div class="mdl-stepper-bar-right"></div>
+                  </a>
+                  <a href="/order/select-dates" class="mdl-stepper-step active-step ">
+                    <div class="icon icon-active">
+                      <i class="material-icons ">date_range</i>
+                    </div>
+                    <div class="mdl-stepper-title">Fecha de carga y descarga</div>
+                    <div class="mdl-stepper-bar-left"></div>
+                    <div class="mdl-stepper-bar-right"></div>
+                  </a>
+                  <a class="mdl-stepper-step active-step">
+                    <div class="icon icon-not icon-active">
+                      <i class="material-icons">library_add</i>
+                    </div>
+                    <div class="mdl-stepper-title">Accesorios</div>
+                    <div class="mdl-stepper-bar-left"></div>
+                    <div class="mdl-stepper-bar-right"></div>
+                  </a>
+                  <a class="mdl-stepper-step">
+                    <div class="icon icon-not">
+                      <i class="material-icons">done_all</i>
+                    </div>
+                    <div class="mdl-stepper-title">Confirmación</div>
+                    <div class="mdl-stepper-bar-left"></div>
+                    <div class="mdl-stepper-bar-right"></div>
+                  </a>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="row dates">
+              <p class="text-center">Se le asignará fecha de descarga al momento de confirmar su pedido</p>
+              <div class="col-md-6 col-md-offset-3">
+                <p class="selectedDate">Fecha: {{dt | date}} {{mytime | date:'shortTime'}}</p>
+                <div style="display:inline-block; min-height:290px;">
+                  <datepicker [(ngModel)]="dt" [showWeeks]="false" [startingDay]="1" (selectionDone)="selectDate(dt)" ></datepicker>
+                  <timepicker [(ngModel)]="mytime"></timepicker>
+                </div>
+                <br>
+                
+              </div>
+            </div>
+            <div class="footer-card">
+              <a href="/order/select-destination" class="btn btn-primary btn-simple btn-back">Atrás</a>
+              <button class="btn btn-primary btn-next" (click)="goExtras()">Continuar<div class="ripple-container"></div></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+    <div class="container">
+      <nav class="pull-left">
+        <ul>
+          <li>
+            <a href="http://www.yetcargo.com">
+							Yetcargo
+						</a>
+          </li>
+          <li>
+            <a href="http://presentation.creative-tim.com">
+						   FS6
+						</a>
+          </li>
+          <li>
+           <a href="http://blog.creative-tim.com">
+						   ANGEL LIST
+						</a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+							<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+						</a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+							 <i class="fa fa-facebook-official" aria-hidden="true"></i>
+						</a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+							 <i class="fa fa-twitter-square" aria-hidden="true"></i>
+						</a>
+          </li>
+         
+        </ul>
+      </nav>
+      <div class="copyright pull-right">
+        &copy; 2017 Yetcargo | Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+  </div>
+</div>

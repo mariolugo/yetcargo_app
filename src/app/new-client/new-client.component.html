@@ -1,0 +1,32 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="Nuevo cliente">
+  <form [formGroup]="createClient" (ngSubmit)="addClient(createClient.value, createClient.valid)">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					<i class="material-icons">clear</i>
+				</button>
+        <h4 class="modal-title">Nuevo cliente</h4>
+      </div>
+      <div class="modal-body">
+        <p>Ingresa el nombre y dirección del cliente, especificar por favor en la <b>dirección</b>: calle, colonia, código postal y estado, por ejemplo: <br>
+          <b>Avenida Cuaúhtemoc #133, Roma Norte, 06700, Ciudad de México.</b>
+        </p>
+
+        <div class="form-group label-floating is-empty">
+          <label class="control-label">Nombre</label>
+          <input type="name" formControlName="name" class="form-control">
+          <span class="material-input"></span></div>
+        <div class="form-group label-floating is-empty">
+          <label class="control-label">Dirección</label>
+          <input type="address" formControlName="address" class="form-control">
+          <span class="material-input"></span></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-dismiss="modal" class="btn btn-simple">Cancelar</button>
+        <button type="button" class="btn btn-danger btn-simple" data-dismiss="modal" type="submit" [disabled]="!createClient.valid" (click)="addClient(createClient.value, createClient.valid)">Crear<div class="ripple-container"><div class="ripple ripple-on ripple-out" style="left: 35.0781px; top: 21px; background-color: rgba(255, 145, 0, 1); transform: scale(8.5);"></div><div class="ripple ripple-on ripple-out" style="left: 46.0781px; top: 20px; background-color: rgba(255, 145, 0, 1); transform: scale(8.5);"></div></div></button>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>

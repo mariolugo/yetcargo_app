@@ -1,32 +1,38 @@
 <!-- Navbar -->
 <nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
 	<div class="container">
-        <div class="navbar-header">
-	    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-index">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-index">
 	        	<span class="sr-only">Toggle navigation</span>
 	        	<span class="icon-bar"></span>
 	        	<span class="icon-bar"></span>
 	        	<span class="icon-bar"></span>
 	    	</button>
-	    	<a href="/">
-	                <div class="logo">
-	                    <img src="assets/img/logoi.png" alt="Creative Tim Logo" rel="tooltip" title="<b>Material Kit</b> was Designed & Coded with care by the staff from <b>Creative Tim</b>" data-placement="bottom" data-html="true">
-	                </div>
-	      	</a>
-	    </div>
+			<a href="/">
+				<div class="logo">
+					<img src="assets/img/logoi.png" alt="Creative Tim Logo" data-placement="bottom" data-html="true">
+				</div>
+			</a>
+		</div>
 
-	    <div class="collapse navbar-collapse" id="navigation-index">
+		<div class="collapse navbar-collapse" id="navigation-index">
 			<ul class="nav navbar-nav">
 				<li>
-					<a href="components-documentation.html" target="_blank">
+					<a href="#funciona">
 						<!--<i class="material-icons">dashboard</i>-->
-						 ¿Cómo funciona?
+						¿Cómo funciona?
 					</a>
 				</li>
 				<li>
-					<a href="http://demos.creative-tim.com/material-kit-pro/presentation.html?ref=utp-freebie" target="_blank">
+					<a href="partner-sign-up">
 						<!--<i class="material-icons">unarchive</i>-->
-						 Conviertete en socio
+						Conviertete en socio
+					</a>
+				</li>
+				<li>
+					<a href="careers">
+						<!--<i class="material-icons">unarchive</i>-->
+						Careers
 					</a>
 				</li>
 				<!--<li>
@@ -39,24 +45,27 @@
 						<i class="fa fa-linkedin-square"></i>
 					</a>
 				</li>-->
-	    	</ul>
+			</ul>
 
-	    	<ul class="nav navbar-nav navbar-right">
-				<li>
-					<a href="sign-up">
+			<ul class="nav navbar-nav navbar-right">
+				<li >
+					<a href="/user">
 						<!--<i class="material-icons">dashboard</i>-->
-						 Regístrate
+						Mi cuenta
 					</a>
 				</li>
-				<li>
-					<a href="http://demos.creative-tim.com/material-kit-pro/presentation.html?ref=utp-freebie" target="_blank">
-						<!--<i class="material-icons">unarchive</i>-->
-						 Inicia sesión
-					</a>
-				</li>
-
-	    	</ul>
-	    </div>
+				
+				<!--<li class="dropdown" *ngIf="authSrv.isLoggedIn()">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i _ngcontent-jfv-21="" class="material-icons">person</i>{{getUserData().getfirstName()}}
+												<b class="caret"></b>
+											</a>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="/user">Panel de usuario</a></li>
+						<li><a href="javascript:void(0)" (click)="logout()">Cerrar Sesión</a></li>
+					</ul>
+				</li>-->
+			</ul>
+		</div>
 	</div>
 </nav>
 <!-- End Navbar -->

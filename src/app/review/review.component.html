@@ -1,0 +1,149 @@
+<div class="new-order">
+  <div class="page-header header-filter" filter-color="purple">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+          <div class="card card-signup">
+            <div class="mdl-card mdl-shadow--2dp">
+
+              <div class="mdl-card__supporting-text">
+
+                <div class="mdl-stepper-horizontal-alternative">
+                  <a href="/order/select-truck" class="mdl-stepper-step active-step">
+                    <div class="icon icon-active">
+                      <i class="material-icons">local_shipping</i>
+                    </div>
+                    <div class="mdl-stepper-title">Transporte de carga</div>
+                    <div class="mdl-stepper-bar-left"></div>
+                    <div class="mdl-stepper-bar-right"></div>
+                  </a>
+                  <a href="/order/select-destination" class="mdl-stepper-step active-step">
+                    <div class="icon icon-active">
+                      <i class="material-icons">location_on</i>
+                    </div>
+                    <div class="mdl-stepper-title">Destino</div>
+                    <div class="mdl-stepper-bar-left"></div>
+                    <div class="mdl-stepper-bar-right"></div>
+                  </a>
+                  <a href="/order/select-dates" class="mdl-stepper-step active-step ">
+                    <div class="icon icon-active">
+                      <i class="material-icons ">date_range</i>
+                    </div>
+                    <div class="mdl-stepper-title">Fecha de carga y descarga</div>
+                    <div class="mdl-stepper-bar-left"></div>
+                    <div class="mdl-stepper-bar-right"></div>
+                  </a>
+                  <a href="/order/select-additionals" class="mdl-stepper-step active-step">
+                    <div class="icon icon-active">
+                      <i class="material-icons">library_add</i>
+                    </div>
+                    <div class="mdl-stepper-title">Accesorios</div>
+                    <div class="mdl-stepper-bar-left"></div>
+                    <div class="mdl-stepper-bar-right"></div>
+                  </a>
+                  <a href="/order/review" class="mdl-stepper-step active-step">
+                    <div class="icon  icon-active">
+                      <i class="material-icons">done_all</i>
+                    </div>
+                    <div class="mdl-stepper-title">Confirmación</div>
+                    <div class="mdl-stepper-bar-left"></div>
+                    <div class="mdl-stepper-bar-right"></div>
+                  </a>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="row review">
+              <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-6">
+                  <h3>Tipo de vehículo</h3>
+                  <p>{{getOrderData().truck}}</p>
+                </div>
+                <div class="col-md-6">
+                  <h3>Destino</h3>
+                  <p>{{getOrderData().destination}}</p>
+                </div>
+                <div class="col-md-6">
+                  <h3>Hora de carga</h3>
+                  <p>{{getOrderData().load | date:'medium'}}</p>
+                </div>
+                <div class="col-md-6">
+                  <h3>Accesorios seleccionados</h3>
+                  <p *ngIf="additionals.length === 0" class="summary-subtitle">Ningun accesorio seleccionado</p>
+                  <div class="chipstag" *ngFor="let add of additionals">
+                    {{add}}
+                  </div>
+                </div>
+                <div class="col-md-6" *ngIf="getOrderData().extras !== undefined">
+                  <h3>Tu entrega llevará</h3>
+                  <p>{{getOrderData().extras}}</p>
+                </div>
+                <div class="col-md-6" *ngIf="getOrderData().extrasAddress !== undefined">
+                  <h3>Dirección de {{getOrderData().extras}}:</h3>
+                  <div class="chipstag" *ngFor="let extra of extrasAddress">
+                    {{extra.value}}
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <h3>Observaciones</h3>
+                  <p>{{getOrderData().comment}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="footer-card">
+              <a href="/order/select-additionals" class="btn btn-primary btn-simple btn-back">Atrás</a>
+              <button class="btn btn-primary btn-next" (click)="createOrder()">Confirmar<div class="ripple-container"></div></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+      <footer class="footer">
+    <div class="container">
+      <nav class="pull-left">
+        <ul>
+          <li>
+            <a href="http://www.yetcargo.com">
+							Yetcargo
+						</a>
+          </li>
+          <li>
+            <a href="http://presentation.creative-tim.com">
+						   FS6
+						</a>
+          </li>
+          <li>
+           <a href="http://blog.creative-tim.com">
+						   ANGEL LIST
+						</a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+							<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+						</a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+							 <i class="fa fa-facebook-official" aria-hidden="true"></i>
+						</a>
+          </li>
+          <li>
+            <a href="http://www.creative-tim.com/license">
+							 <i class="fa fa-twitter-square" aria-hidden="true"></i>
+						</a>
+          </li>
+         
+        </ul>
+      </nav>
+      <div class="copyright pull-right">
+        &copy; 2017 Yetcargo | Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+  </div>
+</div>

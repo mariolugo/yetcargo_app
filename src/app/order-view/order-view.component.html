@@ -1,0 +1,110 @@
+<div class="new-order">
+  <div class="page-header header-filter" filter-color="purple">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+          <div class="card card-signup">
+            <div class="row review">
+              <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-12 card-header">
+                  <img alt="..." class="avatar img-raised" src="assets/img/operador.png">
+                  <div class="header-text">
+                    <h3 *ngIf="order.worker === null">Operador sin confirmar</h3>
+                    <h3 *ngIf="order.worker !== null">{{order.worker}}</h3>
+                    <p>Destino: {{order.destination}}</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h3>Tipo de vehículo</h3>
+                  <p>{{order.truck}}</p>
+                </div>
+                <div class="col-md-6">
+                  <h3>Placas</h3>
+                  <p>{{order.carPlates}}</p>
+                </div>
+                <div class="col-md-6">
+                  <h3>Hora de carga</h3>
+                  <p>{{order.load | date:'fullDate'}} a las {{order.load | date:'shortTime'}}</p>
+                </div>
+                <div class="col-md-6">
+                  <h3>Hora de descarga</h3>
+                  <p class="loadSub" *ngIf="order.unload === undefined || order.unload === null">Por confirmar</p>
+                  <p class="loadSub" *ngIf="order.unload !== undefined || order.unload !== null">{{order.unload | date}}</p>
+                </div>
+                <div class="col-md-6" *ngIf="order.extras !== null">
+                  <h3>Tu entrega llevará</h3>
+                  <p>{{order.extras}}</p>
+                </div>
+                <div class="col-md-6" *ngIf="extrasAddress !== null">
+                  <h3>Dirección de {{order.extras}}</h3>
+                  <div class="chipstag" *ngFor="let extra of extrasAddress">
+                    {{extra.value}}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h3>Accesorios seleccionados</h3>
+                  <div class="chipstag" *ngFor="let item of additionals">
+                    {{item}}
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <h3>Observaciones</h3>
+                  <p>{{order.comment}}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="footer-card">
+              <a href="/user" class="btn btn-primary btn-simple btn-back">Atrás</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <nav class="pull-left">
+          <ul>
+            <li>
+              <a href="http://www.yetcargo.com">
+							Yetcargo
+						</a>
+            </li>
+            <li>
+              <a href="http://presentation.creative-tim.com">
+						   FS6
+						</a>
+            </li>
+            <li>
+              <a href="http://blog.creative-tim.com">
+						   ANGEL LIST
+						</a>
+            </li>
+            <li>
+              <a href="http://www.creative-tim.com/license">
+                <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://www.creative-tim.com/license">
+                <i class="fa fa-facebook-official" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://www.creative-tim.com/license">
+                <i class="fa fa-twitter-square" aria-hidden="true"></i>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+        <div class="copyright pull-right">
+          &copy; 2017 Yetcargo | Todos los derechos reservados.
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>

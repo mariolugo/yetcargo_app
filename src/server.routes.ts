@@ -14,5 +14,16 @@ export const routes: string[] = [
     'about',
     'home',
     'login',
-    'sign-up'
+    'sign-up',
+    'partner-sign-up',
+    'log-in',
+    'user',
+    'order',
+    'select-truck',
+    'select-destination',
+    'select-dates',
+    'select-additionals',
+    'review',
+    'view',
+    'careers'
 ];

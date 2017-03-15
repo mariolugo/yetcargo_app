@@ -1,0 +1,29 @@
+<button class="btn btn-primary btn-raised btn-round" data-toggle="modal" data-target="#myModal">
+	Crear cliente
+<div class="ripple-container"></div></button>
+<table class="table">
+  <thead>
+    <tr>
+      <th class="text-center">#</th>
+      <th>Cliente</th>
+      <th>Destino</th>
+      <th>Fecha de creación</th>
+      <th class="text-right">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of clientsList">
+      <td class="text-center">{{client.id}}</td>
+      <td>{{client.name}}</td>
+      <td>{{client.address}}</td>
+      <td>{{client.createdAt}}</td>
+      <td class="td-actions text-right">
+        <button type="button" rel="tooltip" class="btn btn-danger btn-round" data-original-title="Borrar" title="Borrar">
+		      <i class="material-icons">delete_forever</i>
+		   </button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<app-new-client></app-new-client>

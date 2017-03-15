@@ -47,6 +47,8 @@
     }
   },
   "defaults": {
+    "viewEncapsulation": "Emulated",
+		"changeDetection": "Default",
     "styleExt": "css",
     "prefixInterfaces": false,
     "inline": {

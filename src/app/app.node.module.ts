@@ -6,20 +6,104 @@
  * client.ts and server.ts
  */
 
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { UniversalModule } from 'angular2-universal';
-import { FormsModule } from '@angular/forms';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA,LOCALE_ID, ApplicationRef } from '@angular/core';
+import { AUTO_PREBOOT,UniversalModule, UNIVERSAL_CACHE } from 'angular2-universal';
+import { isBrowser, isNode } from 'angular2-universal/node'; // for AoT we need to manually 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './index';
 import { PublicHeaderComponent } from './public-header/public-header.component';
 import { HomeComponent } from './home/home.component';
+import {OrderData} from './core/order-data';
+import {UserData} from './core/user-data';
 // import { RouterModule } from '@angular/router';
 // import { appRoutes } from './app/app.routing';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
+import { HttpClient } from './core/http-client';
+import { Config } from './core/config';
+import { Auth } from './providers/auth.service';
+import { AuthGuard } from './core/auth-guard.service';
+import { CacheService } from './shared/cache.service';
+import { OrderSrv } from './providers/order.service';
+import { Contact } from './providers/contact.service';
+import { ClientSrv } from './providers/clients.service';
+import { ApiService } from './shared/api.service';
+import { ModelService } from './shared/model.service';
+import { DatepickerModule } from 'ng2-bootstrap';
+import { TagInputModule } from 'ng2-tag-input';
+import { FileUploadModule } from 'ng2-file-upload';
+import { StorageService } from './core/storage.service';
+import { ServerStorage } from './core/storage.node';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { CookieBackendService } from 'angular2-cookie/services/cookies.backend.service';
+import { TimepickerModule } from 'ng2-bootstrap';
+import {RlTagInputModule} from 'angular2-tag-input';
+
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { PartnerSignupComponent } from './partner-signup/partner-signup.component';
+import { LogInComponent } from './log-in/log-in.component';
+import { UserComponent } from './user/user.component';
+import { OrdersComponent } from './orders/orders.component';
+import { SelectTruckComponent } from './select-truck/select-truck.component';
+import { SelectDestinationComponent } from './select-destination/select-destination.component';
+import { SelectDatesComponent } from './select-dates/select-dates.component';
+import { SelectAdditionalsComponent } from './select-additionals/select-additionals.component';
+import { ReviewComponent } from './review/review.component';
+import { OrderViewComponent } from './order-view/order-view.component';
+import { UserClientsComponent } from './user-clients/user-clients.component';
+import { NewClientComponent } from './new-client/new-client.component';
+import { HistoryComponent } from './history/history.component';
+import { CareersComponent } from './careers/careers.component';
+
+export function getLRU() {
+  return new Map();
+}
+export function getRequest() {
+  return Zone.current.get('req') || {};
+}
+export function getResponse() {
+  return Zone.current.get('res') || {};
+}
+
+const appProviders = [
+  // CacheService,
+  //   ApiService,
+  {
+      provide: CookieService,
+      useClass: CookieBackendService
+    },
+  HttpClient,
+  UserData,
+  Config,
+  Auth,
+  OrderSrv,
+  Contact,
+  ClientSrv,
+  AuthGuard,
+  OrderData,
+];
+
+let providers: any[] = [
+    {
+      provide: AUTO_PREBOOT,
+      useValue: false
+    }
+];
+providers.push(appProviders);
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'sign-up', component: SignUpComponent}
+  { path: 'sign-up', component: SignUpComponent},
+  { path: 'partner-sign-up', component: PartnerSignupComponent},
+  { path: 'log-in', component: LogInComponent},
+  { path: 'user', component: UserComponent, canActivate: [AuthGuard], },
+  { path: 'order/select-truck', component: SelectTruckComponent, canActivate: [AuthGuard],},
+  { path: 'order/select-destination', component: SelectDestinationComponent, canActivate: [AuthGuard],},
+  { path: 'order/select-dates', component: SelectDatesComponent, canActivate: [AuthGuard],},
+  { path: 'order/select-additionals', component: SelectAdditionalsComponent, canActivate: [AuthGuard],},
+  { path: 'order/review', component: ReviewComponent, canActivate: [AuthGuard],},
+  { path: 'order/view/:id', component: OrderViewComponent, canActivate: [AuthGuard],},
+  { path: 'careers', component: CareersComponent}
+  
 ];
 /**
  * Top-level NgModule "container"
@@ -28,7 +112,7 @@ const appRoutes: Routes = [
   /** Root App Component */
   bootstrap: [ AppComponent ],
   /** Our Components */
-  declarations: [ AppComponent, PublicHeaderComponent, HomeComponent, SignUpComponent ],
+  declarations: [ AppComponent, PublicHeaderComponent, HomeComponent, SignUpComponent, PartnerSignupComponent, LogInComponent, UserComponent, OrdersComponent, SelectTruckComponent, SelectDestinationComponent, SelectDatesComponent, SelectAdditionalsComponent, ReviewComponent, OrderViewComponent, UserClientsComponent, NewClientComponent, HistoryComponent, CareersComponent ],
   imports: [
     /**
      * NOTE: Needs to be your first import (!)
@@ -36,11 +120,29 @@ const appRoutes: Routes = [
      */
     UniversalModule,
     FormsModule,
+    DatepickerModule.forRoot(),
+    FileUploadModule,
+    ReactiveFormsModule,
+    TimepickerModule.forRoot(),
+    TagInputModule,
     /**
      * using routes
      */
     // RouterModule.forRoot(appRoutes)
      RouterModule.forRoot(appRoutes)
+  ],
+  providers: [
+    providers,
+    { provide: StorageService, useClass: ServerStorage },
+    { provide: LOCALE_ID, useValue: "es-MX" },
+    { provide: 'isBrowser', useValue: isBrowser },
+    { provide: 'isNode', useValue: isNode },
+
+    { provide: 'req', useFactory: getRequest },
+    { provide: 'res', useFactory: getResponse },
+
+    { provide: 'LRU', useFactory: getLRU, deps: [] },
+    
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

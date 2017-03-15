@@ -1,0 +1,287 @@
+<div class="new-order">
+  <div class="page-header header-filter" filter-color="purple">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+          <div class="card card-signup">
+            <div class="row careers">
+              <div class="col-md-12 vacantes">
+                <h3>¿Por que trabajar en Yetcargo?</h3>
+                <p>
+                  Yetcargo es la plataforma web que conecta compañías que necesitan transportar sus productos o mercancías con pequeñas empresas
+                  de transporte confiables. <br>
+                  <br> La industria del transporte de mercancías enfrenta grandes problemas y este gran desafío nos mantiene
+                  en la búsqueda de crear y mejorar nuestro código, nuestros procesos y mecanismo; nuestro objetivo es transformar
+                  la industria resolviendo los problemas del transporte de mercancías e impactar positivamente a los pequeños
+                  transportistas por esto constantemente estamos en búsqueda de talento que quiera ser parte de esta gran
+                  solución.
+                </p>
+                <!-- Tabs with icons on Card -->
+                <div class="card card-nav-tabs">
+                  <div class="header header-success">
+                    <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                    <div class="nav-tabs-navigation">
+                      <div class="nav-tabs-wrapper">
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                          <li class="active">
+                            <a href="#profile" data-toggle="tab" aria-expanded="true">
+                              <i class="material-icons">developer_mode</i> FULL STACK DEVELOPER
+                            </a>
+                          </li>
+                          <li class="">
+                            <a href="#messages" data-toggle="tab" aria-expanded="false">
+                              <i class="material-icons">supervisor_account</i> OPERATIONS MANAGER
+                              <div class="ripple-container"></div>
+                            </a>
+                          </li>
+                          <li class="">
+                            <a href="#settings" data-toggle="tab" aria-expanded="false">
+                              <i class="material-icons">monetization_on</i> FINANCE AND ADMINISTRATION MANAGER
+                              <div class="ripple-container"></div>
+                            </a>
+
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="content">
+                    <div class="tab-content text-center">
+                      <div class="tab-pane active" id="profile">
+                        <p>Si conoces ésto, manda tu cv:</p>
+                        <div class="dev-logos row">
+                          <div class="col-md-2">
+                            <img class="img-responsive" src="assets/img/cvs/react.png" alt="">
+                          </div>
+                          <div class="col-md-2">
+                            <img class="img-responsive" src="assets/img/cvs/nodejs.png" alt="">
+                          </div>
+                          <div class="col-md-2">
+                            <img class="img-responsive" src="assets/img/cvs/angular2.png" alt="">
+                          </div>
+                          <div class="col-md-2">
+                            <img class="img-responsive sails" src="assets/img/cvs/sails.png" alt="">
+                          </div>
+                          <div class="col-md-2">
+                            <img class="img-responsive socketio" src="assets/img/cvs/socketio2.png" alt="">
+                          </div>
+                        </div>
+                        <div class="row cvs">
+                          <div class="col-md-3">
+
+                            <h3>Sube tu CV en PDF</h3>
+                            <input type="file" ng2FileSelect [uploader]="uploader" accept="application/pdf" />
+                          </div>
+
+                          <div class="col-md-9" style="margin-bottom: 40px">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th width="50%">Nombre</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let item of uploader.queue">
+                                  <td><strong>{{ item?.file?.name }}</strong></td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                            <div>
+                              <div>
+
+                                <div class="progress" style="">
+                                  <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }">
+                                    {{uploader.progress}}%
+                                  </div>
+                                </div>
+                                <div *ngIf="uploader.progress === 100" class="alert alert-success" role="alert">
+                                  <strong> Tu CV se ha subido con éxito</strong>, pronto nos pondremos en contacto.
+                                </div>
+                              </div>
+                              <button md-raised-button type="button" class="btn btn-success btn-s" (click)="uploadCv()" [disabled]="!uploader.getNotUploadedItems().length">
+                    <span class="glyphicon glyphicon-upload"></span> Subir CV
+                </button>
+                              <button md-raised-button type="button" class="btn btn-warning btn-s" (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
+                    <span class="glyphicon glyphicon-ban-circle"></span> Cancelar
+                </button>
+
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+                      <div class="tab-pane" id="messages">
+                        <p>
+                          Buscamos una gerente de operaciones que: <br> - Coordine la operación con nuestros clientes y socios
+                          transportistas lo cual comprende; asignación de vehículos de carga, cotizaciones, soporte al cliente,
+                          y realizar seguimiento y actualización de envíos por medio de nuestra plataforma<br> - Realice
+                          el desarrollo del equipo de operaciones y sus procesos<br> - Establezca estrategias, procesos y
+                          tareas para la adquisición de nuevos transportistas<br> - Experiencia en la industria del transporte
+                          de carga<br>
+                          Cualidades personales: - Balance perfecto entre carácter fuerte pero a la vez dirigido
+                          hacia la atención al cliente<br> - Honesta y responsable<br> - Proactiva (somos una startup y requerimos
+                          el 110% de todos)<br> -Trabajo bajo presión (solución de problemas)<br>
+                          <div class="row cvs">
+                          <div class="col-md-3">
+
+                            <h3>Sube tu CV en PDF</h3>
+                            <input type="file" ng2FileSelect [uploader]="uploaderOps" accept="application/pdf" />
+                          </div>
+
+                          <div class="col-md-9" style="margin-bottom: 40px">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th width="50%">Nombre</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let item of uploaderOps.queue">
+                                  <td><strong>{{ item?.file?.name }}</strong></td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                            <div>
+                              <div>
+
+                                <div class="progress" style="">
+                                  <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploaderOps.progress + '%' }">
+                                    {{uploaderOps.progress}}%
+                                  </div>
+                                </div>
+                                <div *ngIf="uploaderOps.progress === 100" class="alert alert-success" role="alert">
+                                  <strong> Tu CV se ha subido con éxito</strong>, pronto nos pondremos en contacto.
+                                </div>
+                              </div>
+                              <button md-raised-button type="button" class="btn btn-success btn-s" (click)="uploadOps()" [disabled]="!uploaderOps.getNotUploadedItems().length">
+                    <span class="glyphicon glyphicon-upload"></span> Subir CV
+                </button>
+                              <button md-raised-button type="button" class="btn btn-warning btn-s" (click)="uploaderOps.cancelAll()" [disabled]="!uploaderOps.isUploading">
+                    <span class="glyphicon glyphicon-ban-circle"></span> Cancelar
+                </button>
+
+                            </div>
+
+                          </div>
+
+                        </div>
+                      </div>
+                      <div class="tab-pane " id="settings">
+                        <p>
+                          Buscamos una persona responsable, proactiva y dinámica encargada de la administración y finanzas con el objetivo de maximizar
+                          los diferentes indicadores dentro de la empresa.
+                          <br> La responsabilidad es tener una interacción de 360 grados con todos los actores e instituciones
+                          internos y externos de la compañía, como clientes, socios transportistas, operaciones, ventas,
+                          tecnología e instituciones.
+                          <br> Por lo que deberás ser una persona integra con la capacidad de lograr un equilibrio entre
+                          todos, sin perder de vista los objetivos. Ser una persona estricta dentro y fuera de la organización,
+                          pero al mismo tiempo flexible ante el entorno y cambios.
+                        </p>
+                        <div class="row cvs">
+                          <div class="col-md-3">
+
+                            <h3>Sube tu CV en PDF</h3>
+                            <input type="file" ng2FileSelect [uploader]="uploaderAdmin" accept="application/pdf" />
+                          </div>
+
+                          <div class="col-md-9" style="margin-bottom: 40px">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th width="50%">Nombre</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let item of uploaderAdmin.queue">
+                                  <td><strong>{{ item?.file?.name }}</strong></td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                            <div>
+                              <div>
+
+                                <div class="progress" style="">
+                                  <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploaderAdmin.progress + '%' }">
+                                    {{uploaderAdmin.progress}}%
+                                  </div>
+                                </div>
+                                <div *ngIf="uploaderAdmin.progress === 100" class="alert alert-success" role="alert">
+                                  <strong> Tu CV se ha subido con éxito</strong>, pronto nos pondremos en contacto.
+                                </div>
+                              </div>
+                              <button md-raised-button type="button" class="btn btn-success btn-s" (click)="uploadAdmin()" [disabled]="!uploaderAdmin.getNotUploadedItems().length">
+                    <span class="glyphicon glyphicon-upload"></span> Subir CV
+                </button>
+                              <button md-raised-button type="button" class="btn btn-warning btn-s" (click)="uploaderAdmin.cancelAll()" [disabled]="!uploaderAdmin.isUploading">
+                    <span class="glyphicon glyphicon-ban-circle"></span> Cancelar
+                </button>
+
+                            </div>
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Tabs with icons on Card -->
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <nav class="pull-left">
+          <ul>
+            <li>
+              <a href="http://www.yetcargo.com">
+							Yetcargo
+						</a>
+            </li>
+            <li>
+              <a href="http://presentation.creative-tim.com">
+						   FS6
+						</a>
+            </li>
+            <li>
+              <a href="http://blog.creative-tim.com">
+						   ANGEL LIST
+						</a>
+            </li>
+            <li>
+              <a href="http://www.creative-tim.com/license">
+                <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://www.creative-tim.com/license">
+                <i class="fa fa-facebook-official" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://www.creative-tim.com/license">
+                <i class="fa fa-twitter-square" aria-hidden="true"></i>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+        <div class="copyright pull-right">
+          &copy; 2017 Yetcargo | Todos los derechos reservados.
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
